@@ -12,6 +12,7 @@ public class PickupController : MonoBehaviour
     [SerializeField] private float pickupForce = 150.0f;
     [SerializeField] private float throwMultiplier = 100.0f;
     [SerializeField] private float rotationSpeed = 5.0f;
+    [SerializeField] private float scrollSpeed = 1.0f;
     private bool rotating = false;
 
     private void Start()
@@ -66,6 +67,7 @@ public class PickupController : MonoBehaviour
         }
         if (heldObj != null)
         {
+            holdArea.Translate(Vector3.forward * Input.mouseScrollDelta.y * scrollSpeed * Time.deltaTime, Space.Self);
             MoveObject();
             if (rotating)
             {
