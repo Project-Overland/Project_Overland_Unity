@@ -42,7 +42,7 @@ public class PickupController : MonoBehaviour
 
         if (Input.GetKey("q") && heldObj != null)
         {
-            throwMultiplier += 100f * Time.deltaTime;
+            throwMultiplier += 150f * Time.deltaTime;
             throwMultiplier = Mathf.Clamp(throwMultiplier, 100, 800);
         }
         if (Input.GetKeyUp("q") && heldObj != null)
