@@ -67,7 +67,7 @@ public class PickupController : MonoBehaviour
         }
         if (heldObj != null)
         {
-            holdArea.Translate(Vector3.forward * Input.mouseScrollDelta.y * scrollSpeed * Time.deltaTime, Space.Self);
+            ScrollObject();
             MoveObject();
             if (rotating)
             {
@@ -75,6 +75,10 @@ public class PickupController : MonoBehaviour
                 float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime;
                 Vector3 rotation = new Vector3(mouseY, -mouseX);
                 heldObj.transform.Rotate(rotation * rotationSpeed, Space.World);
+            }
+            if (Vector3.Distance(heldObj.transform.position, holdArea.position) > pickupRange)
+            {
+                DropObject();
             }
         }
     }
@@ -84,6 +88,15 @@ public class PickupController : MonoBehaviour
         {
             Vector3 moveDirection = holdArea.position - heldObj.transform.position;
             heldObjRB.AddForce(moveDirection * pickupForce);
+        }
+    }
+    void ScrollObject()
+    {
+        Vector3 moveDirection = Vector3.forward * Input.mouseScrollDelta.y * scrollSpeed * Time.deltaTime;
+        float distance = Vector3.Distance(holdArea.position, transform.position);
+        if ((distance > 0.8f && Input.mouseScrollDelta.y < 0f) || (distance < 3f && Input.mouseScrollDelta.y > 0f))
+        {
+            holdArea.Translate(moveDirection);
         }
     }
     void PickupObject(GameObject pickObj)
