@@ -8,4 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Samples/OpenXR Plugin/1.5.3/Controller/ControllerSample.unity
+    guid: edb91e86bd8b7dc4ca40ad6c3167de73
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 059431e6dc7696f43b3bae89a9349a10, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 250f9662728818d49b6cfadd1c3c677c, type: 2}
