@@ -1992,7 +1992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 603498477}
-  m_TurnSpeed: 60
+  m_TurnSpeed: 65
   m_LeftHandTurnAction:
     m_UseReference: 0
     m_Action:
