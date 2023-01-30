@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Samples/OpenXR Plugin/1.5.3/Controller/ControllerSample.unity
     guid: edb91e86bd8b7dc4ca40ad6c3167de73
+  - enabled: 0
+    path: Assets/Scenes/Demo_Scene_Lake_1.unity
+    guid: 0ebf712a1d43d884c80f4747ce386bcb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f1519a0798684e94681b2c36ae6583a2, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 059431e6dc7696f43b3bae89a9349a10, type: 2}
