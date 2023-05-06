@@ -1,0 +1,17 @@
+<<<<<<< HEAD:Overland/Project Overland/Assets/Samples/XR Interaction Toolkit/2.2.0/Starter Assets/DemoScene.unity.meta
+fileFormatVersion: 2
+guid: 319dafa5c80f29f428dc1e0d03f04177
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 76598012fab644182981980cc9d1796e
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> main:Overland/Project Overland/Assets/StarterAssets/Environment/Shaders/URP_HDRP_ShaderGraph/UrpTriplanar.shadergraph.meta

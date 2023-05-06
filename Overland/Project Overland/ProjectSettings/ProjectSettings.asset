@@ -773,6 +773,8 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Standalone: FISHNET;STARTER_ASSETS_PACKAGES_CHECKED
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
@@ -849,6 +851,14 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    Game Performance: 0
+    Purchasing: 0
+    UDP: 0
+    UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -863,11 +873,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 9f3c56aa-82ad-4139-ad8b-69b6697b8bb9
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Project Overland
+  organizationId: dev_frisk
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

@@ -8,8 +8,9 @@
 [Oo]bj/
 [Tt]emp/
 [Uu]nityGenerated/
-Overland/Project Overland/Assets/Materials/Toon Fantasy Nature/*
 Overland/Project Overland/Assets/Materials/iPoly3D/*
+Overland/Project Overland/Assets/Materials/Toon Fantasy Nature/*
+
 # file on crash reports
 sysinfo.txt
 # Unity3D generated meta files
