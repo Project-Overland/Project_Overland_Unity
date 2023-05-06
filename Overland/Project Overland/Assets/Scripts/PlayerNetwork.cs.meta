@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Overland/Project Overland/Assets/Scripts/PickupController.cs.meta
+guid: 636c67a30cec0f64c9b1dfd1a6f9ffd1
+=======
 guid: 1ed6b1b968588890b810a9fd8f1cd83f
+>>>>>>> main:Overland/Project Overland/Assets/Scripts/PlayerNetwork.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

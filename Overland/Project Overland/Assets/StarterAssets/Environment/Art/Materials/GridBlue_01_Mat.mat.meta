@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Overland/Project Overland/Assets/Settings/URP-Performant.asset.meta
+guid: d0e2fc18fe036412f8223b3b3d9ad574
+=======
 guid: ec2c5ab7231e6d10aa462bafb3afe97a
+>>>>>>> main:Overland/Project Overland/Assets/StarterAssets/Environment/Art/Materials/GridBlue_01_Mat.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Overland/Project Overland/Assets/Settings/URP-Balanced.asset.meta
+guid: e1260c1148f6143b28bae5ace5e9c5d1
+=======
 guid: 2a2a72fceb603ffeab3b060dda3e51dd
+>>>>>>> main:Overland/Project Overland/Assets/StarterAssets/Environment/Art/Materials/Builtin_RP/BuiltInTriplanar_01_Mat.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
