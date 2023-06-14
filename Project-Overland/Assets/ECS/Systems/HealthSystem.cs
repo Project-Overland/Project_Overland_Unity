@@ -2,16 +2,11 @@ using Unity.Entities;
 using Unity.Collections;
 using UnityEngine;
 
-public partial struct HealthSystem : ISystem
+public partial class HealthSystem : SystemBase
 {
-    public void OnUpdate()
+    protected override void OnUpdate()
     {
-        // Check health and perform actions
-    }
-
-    public void OnCreate()
-    {
-        // Initialize health-related resources or data
+        throw new System.NotImplementedException();
     }
 
     // No need to implement OnDestroy()

@@ -5,7 +5,7 @@ using Unity.Transforms;
 using UnityEngine;
 
 // Name component to store the name of an entity
-public struct Name : IComponentData
+public struct NameComponent : IComponentData
 {
     public string Value;
 }

@@ -3,8 +3,10 @@
     "",
     "\\Project-Overland",
     "\\Project-Overland\\Assets",
-    "\\Project-Overland\\Assets\\ECS"
+    "\\Project-Overland\\Assets\\ECS",
+    "\\Project-Overland\\Assets\\ECS\\Components",
+    "\\Project-Overland\\Assets\\ECS\\Systems"
   ],
-  "SelectedNode": "\\Project-Overland\\Assets\\ECS\\Entities",
+  "SelectedNode": "\\Project-Overland\\Assets\\ECS\\Systems\\SpawnEntitiesSystem.cs",
   "PreviewInSolutionExplorer": false
 }

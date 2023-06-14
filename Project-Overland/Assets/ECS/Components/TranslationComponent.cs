@@ -3,7 +3,7 @@ using Unity.Mathematics;
 using Unity.Physics;
 
 // Define the Translation component
-public struct Translation : IComponentData
+public struct TranslationComponent : IComponentData
 {
     public float3 Value;
 }

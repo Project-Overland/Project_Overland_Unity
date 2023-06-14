@@ -3,9 +3,9 @@ using UnityEngine;
 using Unity.Mathematics;
 using UnityEngine.InputSystem;
 
-public partial struct InputSystem : ISystem
+public partial class InputSystem : SystemBase
 {
-    public void Update()
+    protected override void OnUpdate()
     {
         // Get input from Unity's Input class
         float horizontal = UnityEngine.Input.GetAxis("Horizontal");
@@ -16,13 +16,13 @@ public partial struct InputSystem : ISystem
         // Create a new Input component
         // InputComponent input = new InputComponent
         // {
-        //     Horizontal = horizontal,
-        //     Vertical = vertical,
-        //     Jump = jump,
-        //     Fire = fire
+        //    Horizontal = horizontal,
+        //    Vertical = vertical,
+        //    Jump = jump,
+        //    Fire = fire
         // };
-
+        //
         // Add the Input component to the player entity
-        // EntityManager.SetComponentData(GameManager.playerEntity, input);
+        // EntityManager.SetComponentData(GameManager.playerEntity, input);    
     }
 }

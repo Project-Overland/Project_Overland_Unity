@@ -5,7 +5,7 @@ using Unity.Transforms;
 using UnityEngine;
 
 // State component to represent the state of an entity
-public struct State : IComponentData
+public struct StateComponent : IComponentData
 {
     public int Value;
 }

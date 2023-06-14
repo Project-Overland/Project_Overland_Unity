@@ -18,13 +18,13 @@ public class EntitiesArray : MonoBehaviour
         for (int i = 0; i < entities.Length; i++)
         {
             entities[i] = entityManager.CreateEntity();
-            entityManager.AddComponentData(entities[i], new Position { Value = new Vector3(i, 0, 0) });
+            entityManager.AddComponentData(entities[i], new PositionComponent { Value = new Vector3(i, 0, 0) });
         }
 
         // Access and modify entity data in the array
         for (int i = 0; i < entities.Length; i++)
         {
-            Position position = entityManager.GetComponentData<Position>(entities[i]);
+            PositionComponent position = entityManager.GetComponentData<PositionComponent>(entities[i]);
             position.Value += new Unity.Mathematics.float3(1, 0, 0);
             entityManager.SetComponentData(entities[i], position);
         }

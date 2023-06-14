@@ -5,7 +5,7 @@ using Unity.Transforms;
 using UnityEngine;
 
 // Sound component to represent sound properties of an entity
-public struct Sound : IComponentData
+public struct SoundComponent : IComponentData
 {
     public AudioClip Clip;
     public float Volume;

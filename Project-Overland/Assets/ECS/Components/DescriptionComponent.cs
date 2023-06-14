@@ -5,7 +5,7 @@ using Unity.Transforms;
 using UnityEngine;
 
 // Description component to store a description of an entity
-public struct Description : IComponentData
+public struct DescriptionComponent : IComponentData
 {
     public string Value;
 }

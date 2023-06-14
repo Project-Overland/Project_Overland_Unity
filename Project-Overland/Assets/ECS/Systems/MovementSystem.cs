@@ -8,7 +8,7 @@ public partial class MovementSystem : SystemBase
     {
         float deltaTime = SystemAPI.Time.DeltaTime;
 
-        Entities.ForEach((Entity entity, ref Translation translation, in Rotation rotation, in MovementComponent movement) =>
+        Entities.ForEach((Entity entity, ref TranslationComponent translation, in RotationComponent rotation, in MovementComponent movement) =>
         {
             // Perform movement calculations based on the movement component data
             float3 moveVector = math.mul(rotation.Value, new float3(0f, 0f, movement.Speed)) * deltaTime;

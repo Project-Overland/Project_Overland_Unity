@@ -1,7 +1,7 @@
 using Unity.Entities;
 using Unity.Mathematics;
 
-public struct RotationSpeed : IComponentData
+public struct RotationSpeedComponent : IComponentData
 {
     public float Value;
 }

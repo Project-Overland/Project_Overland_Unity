@@ -5,7 +5,7 @@ using Unity.Transforms;
 using UnityEngine;
 
 // Physics component to define the physics properties of an entity
-public struct Physic : IComponentData
+public struct PhysicComponent : IComponentData
 {
     public float Mass;
     public float3 Velocity;

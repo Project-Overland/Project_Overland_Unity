@@ -5,7 +5,7 @@ using Unity.Transforms;
 using UnityEngine;
 
 // ID component to uniquely identify an entity
-public struct ID : IComponentData
+public struct IDComponent : IComponentData
 {
     public int Value;
 }
