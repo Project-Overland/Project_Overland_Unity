@@ -14,13 +14,13 @@ public partial struct InputSystem : ISystem
         float fire = UnityEngine.Input.GetAxis("Fire1");
 
         // Create a new Input component
-        Input input = new Input
-        {
-            Horizontal = horizontal,
-            Vertical = vertical,
-            Jump = jump,
-            Fire = fire
-        };
+        // InputComponent input = new InputComponent
+        // {
+        //     Horizontal = horizontal,
+        //     Vertical = vertical,
+        //     Jump = jump,
+        //     Fire = fire
+        // };
 
         // Add the Input component to the player entity
         // EntityManager.SetComponentData(GameManager.playerEntity, input);

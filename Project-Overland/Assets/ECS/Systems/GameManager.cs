@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private CustomEntityManager entityManager;
+    private EntityManager entityManager;
     private Entity playerEntity;
 
     private void Start()
     {
         // Get the EntityManager
-        entityManager = new CustomEntityManager();
+        entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 
         // Initialize the game
         InitializeGame();

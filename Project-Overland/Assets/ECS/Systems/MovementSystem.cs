@@ -1,18 +1,18 @@
 using Unity.Entities;
-using Unity.Transforms;
 using Unity.Mathematics;
-using UnityEngine;
+using Unity.Transforms;
 
-public partial struct MovementSystem : ISystem
+public partial class MovementSystem : SystemBase
 {
-    public void OnUpdate()
+    protected override void OnUpdate()
     {
-        float deltaTime = Time.deltaTime;
+        float deltaTime = SystemAPI.Time.DeltaTime;
 
-        Entities.ForEach((ref Translation translation, in PhysicsVelocity physicsVelocity) =>
+        Entities.ForEach((Entity entity, ref Translation translation, in Rotation rotation, in MovementComponent movement) =>
         {
-            // Update position based on velocity and deltaTime
-            translation.Value += physicsVelocity.Linear * deltaTime;
+            // Perform movement calculations based on the movement component data
+            float3 moveVector = math.mul(rotation.Value, new float3(0f, 0f, movement.Speed)) * deltaTime;
+            translation.Value += moveVector;
         }).Schedule();
     }
 }

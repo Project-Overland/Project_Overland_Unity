@@ -4,7 +4,7 @@ using Unity.Physics;
 using Unity.Transforms;
 using UnityEngine;
 
-public struct Input : IComponentData
+public struct InputComponent : IComponentData
 {
     public float Horizontal;
     public float Vertical;
