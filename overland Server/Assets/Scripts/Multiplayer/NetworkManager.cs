@@ -1,31 +1,17 @@
-using Riptide;
-using Riptide.Utils;
+using RiptideNetworking;
+using RiptideNetworking.Utils;
 using UnityEngine;
 
 public enum ServerToClientId : ushort
 {
-    sync = 1,
-    activeScene,
-    playerSpawned,
+    playerSpawned = 1,
     playerMovement,
-    playerHealthChanged,
-    playerActiveWeaponUpdated,
-    playerAmmoChanged,
-    playerDied,
-    playerRespawned,
-    projectileSpawned,
-    projectileMovement,
-    projectileCollided,
-    projectileHitmarker,
 }
 
 public enum ClientToServerId : ushort
 {
     name = 1,
     input,
-    switchActiveWeapon,
-    primaryUse,
-    reload,
 }
 
 public class NetworkManager : MonoBehaviour
@@ -47,7 +33,6 @@ public class NetworkManager : MonoBehaviour
     }
 
     public Server Server { get; private set; }
-    public ushort CurrentTick { get; private set; } = 0;
 
     [SerializeField] private ushort port;
     [SerializeField] private ushort maxClientCount;
@@ -61,32 +46,16 @@ public class NetworkManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
 
-#if UNITY_EDITOR
         RiptideLogger.Initialize(Debug.Log, Debug.Log, Debug.LogWarning, Debug.LogError, false);
-#else
-        System.Console.Title = "Server";
-        System.Console.Clear();
-        Application.SetStackTraceLogType(UnityEngine.LogType.Log, StackTraceLogType.None);
-        RiptideLogger.Initialize(Debug.Log, true);
-#endif
 
         Server = new Server();
-        Server.ClientConnected += NewPlayerConnected;
-        Server.ClientDisconnected += PlayerLeft;
-
         Server.Start(port, maxClientCount);
-
-        GameLogic.Singleton.LoadScene(1);
+        Server.ClientDisconnected += PlayerLeft;
     }
 
     private void FixedUpdate()
     {
-        Server.Update();
-
-        if (CurrentTick % 200 == 0)
-            SendSync();
-
-        CurrentTick++;
+        Server.Tick();
     }
 
     private void OnApplicationQuit()
@@ -94,22 +63,9 @@ public class NetworkManager : MonoBehaviour
         Server.Stop();
     }
 
-    private void NewPlayerConnected(object sender, ServerConnectedEventArgs e)
+    private void PlayerLeft(object sender, ClientDisconnectedEventArgs e)
     {
-        GameLogic.Singleton.PlayerCountChanged(e.Client.Id);
-    }
-
-    private void PlayerLeft(object sender, ServerDisconnectedEventArgs e)
-    {
-        if (Player.list.TryGetValue(e.Client.Id, out Player player))
+        if (Player.list.TryGetValue(e.Id, out Player player))
             Destroy(player.gameObject);
-    }
-
-    private void SendSync()
-    {
-        Message message = Message.Create(MessageSendMode.Unreliable, (ushort)ServerToClientId.sync);
-        message.AddUShort(CurrentTick);
-
-        Server.SendToAll(message);
     }
 }
