@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
             player.IsLocal = false;
         }
 
-        player.name = $"Player {id} (username)";
+        player.name = $"Player {id} {username}";
         player.Id = id;
         player.username = username;
 
