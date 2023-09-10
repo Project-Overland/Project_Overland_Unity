@@ -6,11 +6,24 @@ public class DiceScript : MonoBehaviour
 {
     static Rigidbody rb;
     public static Vector3 diceVelocity;
+    // add a public static int diceNumber
+    public int diceNumber;
+    // add a list of of game object for the dice sides where we can edit the position of the game objects
+    public List<GameObject> diceSides;
+    // add a mesh filter
+    MeshFilter mf;
+    bool isGrounded;
+
+    // add a list of vectors for the dice sides
+    // public List<Vector3> diceSidesVectors;
+        
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        mf = GetComponent<MeshFilter>();
+        isGrounded = true;
     }
 
     // Update is called once per frame
@@ -22,6 +35,12 @@ public class DiceScript : MonoBehaviour
         {
             RollDice();
         }
+
+        // if velocity is 0, get the dice number
+        if (diceVelocity.x == 0 && diceVelocity.y == 0 && diceVelocity.z == 0)
+        {
+            GetDiceNumber();
+        }
         
     }
 
@@ -29,6 +48,7 @@ public class DiceScript : MonoBehaviour
     {
         if (diceVelocity.x == 0 && diceVelocity.y == 0 && diceVelocity.z == 0)
         {
+            isGrounded = false;
             float dirX = Random.Range(0, 500);
             float dirY = Random.Range(0, 500);
             float dirZ = Random.Range(0, 500);
@@ -38,6 +58,34 @@ public class DiceScript : MonoBehaviour
 
             rb.AddForce(transform.up * 500);
             rb.AddTorque(dirX, dirY, dirZ);
+            diceNumber = 0;
         }
+    }
+
+    void GetDiceNumber()
+    {
+        // for each dice side collider in the list of dice sides colliders get the element on the top
+        foreach (GameObject diceSide in diceSides)
+        {
+            // get the dice position
+            Vector3 diceSidePos = diceSide.transform.position;
+            // get the dice rotation
+            Quaternion diceSideRot = diceSide.transform.rotation;
+            // log the dice side position
+            int diceSideIndex = diceSides.IndexOf(diceSide);
+
+            Debug.Log(" pos : " + diceSidePos + " rot : " + diceSideRot + " name : " + diceSide.name);
+             
+            // if the dice side is on the top
+            if (diceSidePos.y > 1.0f)
+            {
+                // get value from name
+                // diceNumber = int.Parse(diceSide.name);
+                // get the value from the dice side name after the 4th character
+                diceNumber = int.Parse(diceSide.name.Substring(4));
+                isGrounded = true;
+            }
+        }
+
     }
 }
