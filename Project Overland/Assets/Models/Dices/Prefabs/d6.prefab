@@ -405,10 +405,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diceNumber: 0
-  diceSides:
-  - {fileID: 2817856091132140463}
-  - {fileID: 2817856090563237508}
-  - {fileID: 2817856090504447615}
-  - {fileID: 2817856091237891336}
-  - {fileID: 2817856090530919167}
-  - {fileID: 2817856090981801715}
+  diceSidesNumber: 6
