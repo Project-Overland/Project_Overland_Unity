@@ -10,6 +10,7 @@ public class DiceScript : MonoBehaviour
     public int diceNumber;
     // add a list of of game object for the dice sides where we can edit the position of the game objects
     public int diceSidesNumber;
+    public int step = 1;
     List<GameObject> diceSides;
     // add a mesh filter
     MeshFilter mf;
@@ -27,7 +28,12 @@ public class DiceScript : MonoBehaviour
         isGrounded = true;
         diceSides = new List<GameObject>();
         for (int i = 1; i <= diceSidesNumber; i++) {
-            diceSides.Add(GameObject.Find("Side" + (i)));
+            GameObject diceSide = GameObject.Find("Side" + (i * step));
+            if (diceSide != null)
+                diceSides.Add(diceSide);
+            else {
+                Debug.Log("Side" + (i * step) + " not found");
+            }
         }
 
     }
@@ -37,9 +43,9 @@ public class DiceScript : MonoBehaviour
     {
         diceVelocity = rb.velocity;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            RollDice();
+            RollDice(GetTransform());
         }
 
         // if velocity is 0, get the dice number
@@ -50,7 +56,12 @@ public class DiceScript : MonoBehaviour
         
     }
 
-    void RollDice()
+    private Transform GetTransform()
+    {
+        return transform;
+    }
+
+    void RollDice(Transform transform)
     {
         if (diceVelocity.x == 0 && diceVelocity.y == 0 && diceVelocity.z == 0)
         {
@@ -59,8 +70,8 @@ public class DiceScript : MonoBehaviour
             float dirY = Random.Range(0, 500);
             float dirZ = Random.Range(0, 500);
 
-			transform.position = new Vector3 (0, 2, 0);
-			transform.rotation = Quaternion.identity;
+			transform.position = new Vector3 (0, 5, 0);
+            // transform.rotation = Quaternion.identity;
 
             rb.AddForce(transform.up * 500);
             rb.AddTorque(dirX, dirY, dirZ);
